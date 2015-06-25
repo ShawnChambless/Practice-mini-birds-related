@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 
 // Controllers
 var SightingCtrl = require('./controllers/SightingCtrl');
+var UserCtrl = require('./controllers/UserCtrl');
 
 // Express
 var app = express();
@@ -15,13 +16,15 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Endpoints
-app.post('/sighting', SightingCtrl.create);
-app.get('/sighting', SightingCtrl.read);
-app.put('/sighting/:id', SightingCtrl.update);
-app.delete('/sighting/:id', SightingCtrl.delete);
+app.post('/sightings', SightingCtrl.create);
+app.get('/sightings', SightingCtrl.read);
+app.put('/sightings/:id', SightingCtrl.update);
+app.delete('/sightings/:id', SightingCtrl.delete);
+
+app.post('/user', UserCtrl.create);
 
 // Connections
-var port = 9001;
+var port = 8081;
 var mongoUri = 'mongodb://localhost:27017/mini-birds-mongoose';
 
 mongoose.connect(mongoUri);
