@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-
+var birdSchema = require('bird')
 var sightingSchema = new mongoose.Schema({
   name: { type: String, lowercase: true },
   order: { type: String, lowercase: true, maxlength: 20 },
